@@ -1,55 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ - Rummage Register</title>
-  <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header.hero {
-      background: #68B093;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    main.content {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-    }
-    a {
-      color: #68B093;
-      text-decoration: none;
-      font-weight: 600;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Rummage Register</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="Frequently asked questions about Rummage Register - your garage sale companion app.">
+    <meta name="keywords" content="garage sale app, yard sale tracker, sale earnings, FAQ, help">
+    <meta name="author" content="Rummage Register">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f6fcf9',
+                            100: '#e5f7ef',
+                            200: '#c5eedc',
+                            300: '#a5e5ca',
+                            400: '#86E0BC',
+                            500: '#5ec49e',
+                            600: '#3fb88a',
+                            700: '#2d9d71',
+                            800: '#25805c',
+                            900: '#1a503c',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter var', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply inline-flex items-center px-6 py-3 text-base font-medium text-white bg-primary-600 border border-transparent rounded-lg shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200;
+            }
+            .section-title {
+                @apply text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl;
+            }
+            .section-subtitle {
+                @apply mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl;
+            }
+        }
+    </style>
 </head>
-<body>
-  <header class="hero">
-    <h1>Frequently Asked Questions</h1>
-  </header>
+<body class="antialiased bg-white">
+    <!-- Navigation -->
+    <!-- <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/" class="text-xl font-bold text-primary-600">Rummage Register</a>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <a href="/" class="btn-primary">
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav> -->
 
-  <main class="content">
-    <h2>Is Rummage Register free to use?</h2>
-    <p>Yes! The core features are completely free. Future premium features may be available as in-app purchases.</p>
+    <!-- FAQ Section -->
+    <div class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+            <div class="text-center">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about Rummage Register.</p>
+            </div>
 
-    <h2>Do I need an account?</h2>
-    <p>No account needed. Just open the app and start tracking your sales.</p>
-  </main>
+            <div class="mt-12 max-w-3xl mx-auto">
+                <dl class="space-y-6 divide-y divide-gray-200">
+                    <!-- Q1 -->
+                    <div class="pt-6">
+                        <dt class="text-lg">
+                            <button class="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none">
+                                <span class="font-medium text-gray-900">Is Rummage Register free to use?</span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg class="h-6 w-6 transform rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd class="mt-2 pr-12">
+                            <p class="text-base text-gray-500">Yes! The core features are completely free. Premium features are available as in-app purchases.</p>
+                        </dd>
+                    </div>
 
-  <footer>
-    <p><a href="index.html">← Back to Home</a></p>
-  </footer>
+                    <!-- Q2 -->
+                    <div class="pt-6">
+                        <dt class="text-lg">
+                            <button class="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none">
+                                <span class="font-medium text-gray-900">Do I need an account?</span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg class="h-6 w-6 transform rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd class="mt-2 pr-12">
+                            <p class="text-base text-gray-500">No account needed. Just open the app and start tracking your sales.</p>
+                        </dd>
+                    </div>
+
+                    <!-- Q3 -->
+                    <!-- <div class="pt-6">
+                        <dt class="text-lg">
+                            <button class="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none">
+                                <span class="font-medium text-gray-900">Can I export my sales data?</span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg class="h-6 w-6 transform rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd class="mt-2 pr-12">
+                            <p class="text-base text-gray-500">Yes, you can export your sales data as a CSV file for record keeping or analysis.</p>
+                        </dd>
+                    </div> -->
+
+                    <!-- Q4 -->
+                    <!-- <div class="pt-6">
+                        <dt class="text-lg">
+                            <button class="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none">
+                                <span class="font-medium text-gray-900">Is my data backed up?</span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg class="h-6 w-6 transform rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd class="mt-2 pr-12">
+                            <p class="text-base text-gray-500">Your data is stored securely on your device and can be backed up with your regular iPhone backups.</p>
+                        </dd>
+                    </div> -->
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
+                <!-- <div class="flex space-x-6 md:order-2">
+                    <a href="/privacy.html" class="text-gray-400 hover:text-gray-500">Privacy Policy</a>
+                </div> -->
+                <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+                    &copy; 2025 Rummage Register. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

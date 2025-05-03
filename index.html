@@ -1,77 +1,479 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rummage Register</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    header.hero {
-      background: #68B093;
-    }
-    .cta {
-      background: #cde3d8;
-    }
-    .cta a.button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #68B093;
-      color: white;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-    a {
-      color: #68B093;
-      text-decoration: none;
-      font-weight: 600;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rummage Register - Your Garage Sale Companion</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="Track your sale earnings easily with Rummage Register. No more pen and paper - just tap and sell!">
+    <meta name="keywords" content="garage sale app, yard sale tracker, sale earnings, cash register app, garage sale helper, yard sale management">
+    <meta name="author" content="Rummage Register">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rummage Register - Your Sale Companion">
+    <meta property="og:description" content="Track your garage sale earnings easily with Rummage Register. No more pen and paper - just tap and sell!">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f6fcf9',
+                            100: '#e5f7ef',
+                            200: '#c5eedc',
+                            300: '#a5e5ca',
+                            400: '#86E0BC',
+                            500: '#5ec49e',
+                            600: '#3fb88a',
+                            700: '#2d9d71',
+                            800: '#25805c',
+                            900: '#1a503c',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter var', 'sans-serif'],
+                    },
+                    animation: {
+                        'text-slide-2': 'text-slide-2 5s cubic-bezier(0.83, 0, 0.17, 1) infinite',
+                        'text-slide-3': 'text-slide-3 7.5s cubic-bezier(0.83, 0, 0.17, 1) infinite',
+                        'text-slide-4': 'text-slide-4 10s cubic-bezier(0.83, 0, 0.17, 1) infinite',
+                        'text-slide-5': 'text-slide-5 12.5s cubic-bezier(0.83, 0, 0.17, 1) infinite',
+                        'text-slide-6': 'text-slide-6 15s cubic-bezier(0.83, 0, 0.17, 1) infinite',
+                        'text-slide-7': 'text-slide-7 17.5s cubic-bezier(0.83, 0, 0.17, 1) infinite',
+                        'text-slide-8': 'text-slide-8 20s cubic-bezier(0.83, 0, 0.17, 1) infinite',
+                    },
+                    keyframes: {
+                        'text-slide-2': {
+                            '0%, 40%': {
+                                transform: 'translateY(0%)',
+                            },
+                            '50%, 90%': {
+                                transform: 'translateY(-33.33%)',
+                            },
+                            '100%': {
+                                transform: 'translateY(-66.66%)',
+                            },
+                        },
+                        'text-slide-3': {
+                            '0%, 26.66%': {
+                                transform: 'translateY(0%)',
+                            },
+                            '33.33%, 60%': {
+                                transform: 'translateY(-25%)',
+                            },
+                            '66.66%, 93.33%': {
+                                transform: 'translateY(-50%)',
+                            },
+                            '100%': {
+                                transform: 'translateY(-75%)',
+                            },
+                        },
+                        'text-slide-4': {
+                            '0%, 20%': {
+                                transform: 'translateY(0%)',
+                            },
+                            '25%, 45%': {
+                                transform: 'translateY(-20%)',
+                            },
+                            '50%, 70%': {
+                                transform: 'translateY(-40%)',
+                            },
+                            '75%, 95%': {
+                                transform: 'translateY(-60%)',
+                            },                            
+                            '100%': {
+                                transform: 'translateY(-80%)',
+                            },
+                        },
+                        'text-slide-5': {
+                            '0%, 16%': {
+                                transform: 'translateY(0%)',
+                            },
+                            '20%, 36%': {
+                                transform: 'translateY(-16.66%)',
+                            },
+                            '40%, 56%': {
+                                transform: 'translateY(-33.33%)',
+                            },
+                            '60%, 76%': {
+                                transform: 'translateY(-50%)',
+                            },
+                            '80%, 96%': {
+                                transform: 'translateY(-66.66%)',
+                            },
+                            '100%': {
+                                transform: 'translateY(-83.33%)',
+                            },
+                        },
+                        'text-slide-6': {
+                            '0%, 13.33%': {
+                                transform: 'translateY(0%)',
+                            },
+                            '16.66%, 30%': {
+                                transform: 'translateY(-14.28%)',
+                            },
+                            '33.33%, 46.66%': {
+                                transform: 'translateY(-28.57%)',
+                            },
+                            '50%, 63.33%': {
+                                transform: 'translateY(-42.85%)',
+                            },
+                            '66.66%, 80%': {
+                                transform: 'translateY(-57.14%)',
+                            },
+                            '83.33%, 96.66%': {
+                                transform: 'translateY(-71.42%)',
+                            },
+                            '100%': {
+                                transform: 'translateY(-85.71%)',
+                            },
+                        },
+                        'text-slide-7': {
+                            '0%, 11.43%': {
+                                transform: 'translateY(0%)',
+                            },
+                            '14.28%, 25.71%': {
+                                transform: 'translateY(-12.5%)',
+                            },
+                            '28.57%, 40%': {
+                                transform: 'translateY(-25%)',
+                            },
+                            '42.85%, 54.28%': {
+                                transform: 'translateY(-37.5%)',
+                            },
+                            '57.14%, 68.57%': {
+                                transform: 'translateY(-50%)',
+                            },
+                            '71.42%, 82.85%': {
+                                transform: 'translateY(-62.5%)',
+                            },
+                            '85.71%, 97.14%': {
+                                transform: 'translateY(-75%)',
+                            },
+                            '100%': {
+                                transform: 'translateY(-87.5%)',
+                            },
+                        },
+                        'text-slide-8': {
+                            '0%, 10%': {
+                                transform: 'translateY(0%)',
+                            },
+                            '12.5%, 22.5%': {
+                                transform: 'translateY(-11.11%)',
+                            },
+                            '25%, 35%': {
+                                transform: 'translateY(-22.22%)',
+                            },
+                            '37.5%, 47.5%': {
+                                transform: 'translateY(-33.33%)',
+                            },
+                            '50%, 60%': {
+                                transform: 'translateY(-44.44%)',
+                            },
+                            '62.5%, 72.5%': {
+                                transform: 'translateY(-55.55%)',
+                            },
+                            '75%, 85%': {
+                                transform: 'translateY(-66.66%)',
+                            },
+                            '87.5%, 97.5%': {
+                                transform: 'translateY(-77.77%)',
+                            },
+                            '100%': {
+                                transform: 'translateY(-88.88%)',
+                            },
+                        }
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply inline-flex items-center px-6 py-3 text-base font-medium text-white bg-primary-600 border border-transparent rounded-lg shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200;
+            }
+            .section-title {
+                @apply text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl;
+            }
+            .section-subtitle {
+                @apply mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl;
+            }
+        }
+    </style>
 </head>
-<body>
-  <header class="hero">
-    <h1>Rummage Register</h1>
-    <p class="tagline">Easily keep track of your sales throughout the day without the hassle of pen and paper.</p>
-  </header>
+<body class="antialiased bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/" class="text-xl font-bold text-primary-600">Rummage Register</a>
+                </div>
+                <!-- <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="#features" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900">Features</a>
+                    <a href="#how-it-works" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900">How it Works</a>
+                    <a href="#faq" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900">FAQ</a>
+                </div> -->
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <a href="https://apps.apple.com/us/app/rummage-register-sale-tracker/id6448892349" class="btn-primary">
+                        Download App
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-  <section class="features">
-    <div class="feature">
-      <img src="https://img.icons8.com/ios-filled/50/price-tag.png" alt="Track Sales Icon" />
-      <h3>Track Sales</h3>
-      <p>Record every item and its price with just a few taps.</p>
+    <!-- Hero Section -->
+    <div class="relative bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                    <div class="sm:text-center lg:text-left">
+                        <h1 class="section-title">
+                            <span class="block">Simplify Your</span>
+                            <!-- <span class="text-primary-600">Garage Sale</span> -->
+                            <div class="font-extrabold text-6xl md:text-6xl [text-wrap:balance] bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 to-50% to-slate-200">
+                              <span class="text-primary-600 inline-flex flex-col h-[calc(theme(fontSize.6xl)*theme(lineHeight.tight))] md:h-[calc(theme(fontSize.6xl)*theme(lineHeight.tight))] overflow-hidden">
+                              <ul class="block animate-text-slide-5 text-left leading-tight [&_li]:block">
+                                  <li>Garage Sale</li>
+                                  <li>Yard Sale</li>
+                                  <li>Fundraiser</li>
+                                  <li>Estate Sale</li>
+                                  <li>Lemonade Stand</li>
+                                  <li aria-hidden="true">Garage Sale</li>
+                              </ul>
+                              </span>
+                            </div>
+                        </h1>
+                        <p class="section-subtitle lg:text-left">
+                            Easily track your sales without the hassle of pen and paper.
+                        </p>
+                        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                            <div class="rounded-md shadow">
+                                <a href="https://apps.apple.com/us/app/rummage-register-sale-tracker/id6448892349" class="btn-primary">
+                                    Download on App Store
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <!-- <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="hero-image.jpg" alt="Rummage Register app interface">
+        </div> -->
     </div>
-    <div class="feature">
-      <img src="https://img.icons8.com/ios-filled/50/cash-in-hand.png" alt="Count Cash Icon" />
-      <h3>Count Cash</h3>
-      <p>Know exactly how much you’ve made throughout the day.</p>
+
+    <!-- Features Section -->
+    <div id="features" class="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="section-title">Features You'll Love</h2>
+                <p class="section-subtitle">Everything you need to run a successful sale, right in your pocket.</p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1: Track Sales -->
+                <div class="relative group h-full flex">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary-600 to-primary-400 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-200"></div>
+                    <div class="relative p-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6 h-full w-full">
+                        <div class="flex-shrink-0">
+                            <div class="p-4 bg-primary-50 rounded-lg">
+                                <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-gray-900 text-lg">Smart Sales Tracking</h3>
+                            <p class="mt-2 text-gray-500">Record transactions with optional notes and descriptions for each sale.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Multiple Merchants -->
+                <div class="relative group h-full flex">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary-600 to-primary-400 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-200"></div>
+                    <div class="relative p-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6 h-full w-full">
+                        <div class="flex-shrink-0">
+                            <div class="p-4 bg-primary-50 rounded-lg">
+                                <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-gray-900 text-lg">Multi-Merchant Support</h3>
+                            <p class="mt-2 text-gray-500">Manage multiple sellers and split revenue easily. Perfect for group sales and consignment events.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Custom Presets -->
+                <div class="relative group h-full flex">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary-600 to-primary-400 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-200"></div>
+                    <div class="relative p-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6 h-full w-full">
+                        <div class="flex-shrink-0">
+                            <div class="p-4 bg-primary-50 rounded-lg">
+                                <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-gray-900 text-lg">Smart Presets</h3>
+                            <p class="mt-2 text-gray-500">Create reusable transaction presets and view detailed sales charts by merchant and time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 4: iCloud Sync -->
+                <div class="relative group h-full flex">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary-600 to-primary-400 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-200"></div>
+                    <div class="relative p-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6 h-full w-full">
+                        <div class="flex-shrink-0">
+                            <div class="p-4 bg-primary-50 rounded-lg">
+                                <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-gray-900 text-lg">iCloud Sync</h3>
+                            <p class="mt-2 text-gray-500">Your data syncs seamlessly across all your devices, signed into the same iCloud account.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 5: Daily Details -->
+                <div class="relative group h-full flex">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary-600 to-primary-400 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-200"></div>
+                    <div class="relative p-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6 h-full w-full">
+                        <div class="flex-shrink-0">
+                            <div class="p-4 bg-primary-50 rounded-lg">
+                                <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-gray-900 text-lg">Detailed Insights</h3>
+                            <p class="mt-2 text-gray-500">Set daily goals, track visitor counts, and add notes to keep everything organized.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 6: Analytics -->
+                <div class="relative group h-full flex">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary-600 to-primary-400 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-200"></div>
+                    <div class="relative p-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6 h-full w-full">
+                        <div class="flex-shrink-0">
+                            <div class="p-4 bg-primary-50 rounded-lg">
+                                <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-gray-900 text-lg">Visual Analytics</h3>
+                            <p class="mt-2 text-gray-500">View beautiful charts showing sales breakdowns by merchant and time of day.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="feature">
-      <img src="https://img.icons8.com/ios-filled/50/clock.png" alt="Quick Setup Icon" />
-      <h3>Quick Setup</h3>
-      <p>Get started in seconds — no account required.</p>
+
+    <!-- FAQ Section -->
+    <div id="faq" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about Rummage Register.</p>
+            </div>
+
+            <div class="mt-12 max-w-3xl mx-auto">
+                <dl class="space-y-6 divide-y divide-gray-200">
+                    <!-- Q1 -->
+                    <div class="pt-6">
+                      <dt class="text-lg">
+                          <button class="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none">
+                              <span class="font-medium text-gray-900">Is Rummage Register free to use?</span>
+                              <span class="ml-6 h-7 flex items-center">
+                                  <svg class="h-6 w-6 transform rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                  </svg>
+                              </span>
+                          </button>
+                      </dt>
+                      <dd class="mt-2 pr-12">
+                          <p class="text-base text-gray-500">Yes! The core features are completely free. Premium features are available as in-app purchases.</p>
+                      </dd>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="pt-6">
+                        <dt class="text-lg">
+                            <button class="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none">
+                                <span class="font-medium text-gray-900">Do I need an account to use Rummage Register?</span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg class="h-6 w-6 transform rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd class="mt-2 pr-12">
+                            <p class="text-base text-gray-500">No account needed. Just open the app and start tracking your sales.</p>
+                        </dd>
+                    </div>
+
+                    <!-- Q3 -->
+                    <!-- <div class="pt-6">
+                        <dt class="text-lg">
+                            <button class="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none">
+                                <span class="font-medium text-gray-900">Is my data backed up?</span>
+                                <span class="ml-6 h-7 flex items-center">
+                                    <svg class="h-6 w-6 transform rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <dd class="mt-2 pr-12">
+                            <p class="text-base text-gray-500">Your data is stored securely on your iCloud account.</p>
+                        </dd>
+                    </div> -->
+                </dl>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <section class="screenshot">
-    <h2>See It in Action</h2>
-    <img src="screenshot-placeholder.png" alt="App Screenshot" />
-    <p class="note">App screenshot coming soon!</p>
-  </section>
-
-  <section class="cta">
-    <h2>Now Available</h2>
-    <p>Rummage Register is live on the App Store.</p>
-    <a class="button" href="https://apps.apple.com/us/app/rummage-register-sale-tracker/id6448892349" target="_blank" rel="noopener">Get it on the App Store</a>
-  </section>
-
-  <footer>
-  <p>&copy; 2025 Rummage Register. All rights reserved.</p>
-  <p>
-    <a href="privacy.html">Privacy Policy</a> |
-    <a href="faq.html">FAQ</a>
-  </p>
-</footer>
+    <!-- Footer -->
+    <footer class="bg-gray-50">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
+                <div class="flex space-x-6 md:order-2">
+                    <a href="/privacy.html" class="text-gray-400 hover:text-gray-500">Privacy Policy</a>
+                </div>
+                <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+                    &copy; 2025 Rummage Register. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
